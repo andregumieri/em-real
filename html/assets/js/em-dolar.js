@@ -21,9 +21,6 @@
 		 * Inicializa o webapp
 		 */
 		init: function() {
-			// Seta o tamanho do keypad
-			$("#wrapKeyboard").height(window.innerHeight-144-48);
-
 			// Inicia a div de loading
 			EmDolar.Loading.init();
 
@@ -41,6 +38,9 @@
 		 * Faz o setup para funcionamento do webapp
 		 */
 		setup: function() {
+			// Seta o tamanho do keypad
+			EmDolar.keypadSize();
+
 			// Seta a opção de IOF e imposto
 			EmDolar.setOptIOF();
 			EmDolar.setOptImposto();
@@ -58,8 +58,21 @@
 			// Evento dos botões de IOF
 			$("#wrapBotoesPagamento button").on("touchstart", EmDolar._botaoPagamentoTouchStart);
 			$("#btnOptImposto").on("touchstart", EmDolar._botaoImpostoTouchStart);
+
+			// Evento do resize/orientacao
+			$(window).on("resize", EmDolar._windowResize);
 			
 		},
+
+		/**
+		 * EmDolar.keypadSize()
+		 * Ajusta o tamanho do Keypad de acordo com o espaço disponível na tela
+		 */
+		keypadSize: function() {
+			// Seta o tamanho do keypad
+			$("#wrapKeyboard").height(window.innerHeight-144-48);
+		},
+
 
 		/**
 		 * EmDolar.setOptIOF()
@@ -99,6 +112,15 @@
 			} else {
 				$("#btnOptImposto").removeClass("ativo");
 			}
+		},
+
+
+		/**
+		 * EmDolar._windowResize()
+		 * Evento disparado no resize do window ou na mudança de orientação
+		 */
+		_windowResize: function(e) {
+			EmDolar.keypadSize();
 		},
 
 
