@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Em dolar</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="assets/css/em-dolar.css" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+<body>
+	<div id="divLoading"></div>
+	
+	
+
+	<div id="wrapScreen">
+		<div id="spanConvertido"><small class="simbolo">R$</small> 0<small class="centavos">,00</small></div>
+		<div id="spanConverter"><small class="simbolo">$</small> 0<small class="centavos">.00</small></div>
+
+		<div class="opcoes">
+			<div class="pagamento" id="wrapBotoesPagamento">
+				<button id="btnOptPagamento_dinheiro" data-tipo="dinheiro">Dinheiro</button><button id="btnOptPagamento_debito" data-tipo="debito">Débito</button><button id="btnOptPagamento_credito" data-tipo="credito">Crédito</button>
+			</div>
+
+			<div class="imposto">
+				<button id="btnOptImposto">Imposto</button>
+			</div>
+		</div>
+		<!-- <input type="text" pattern="\d*" id="txtValorDolar" />
+		<input type="text" pattern="\d*" id="txtConvertido" /> -->
+	</div>
+
+	<div id="wrapInfo">
+		<button id="btnUpdateDolar" class="update"></button>
+		<div id="spanCotacao"></div>
+	</div>
+	
+	<div id="wrapKeyboard">
+		<button id="btn1" data-key="1">1</button><button id="btn2" data-key="2">2</button><button id="btn3" data-key="3">3</button><button id="btn4" data-key="4">4</button><button id="btn5" data-key="5">5</button><button id="btn6" data-key="6">6</button><button id="btn7" data-key="7">7</button><button id="btn8" data-key="8">8</button><button id="btn9" data-key="9">9</button><button id="btn0" data-key="0">0</button><button id="btnClear" data-key="clear">clear</button>
+	</div>
+
+	<div id="wrapBotoes">
+		<button id="btnSetIof" data-opcao="calculaIof">IOF</button>
+		<button id="btnSetImposto" data-opcao="calculaImposto">Imposto</button>
+	</div>
+
+	<script type="text/javascript" src="assets/js/libs/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="assets/js/libs/jquery.maskMoney.js"></script>
+	<script type="text/javascript" src="assets/js/libs/spin.min.js"></script>
+	<script type="text/javascript" src="assets/js/functions.js"></script>
+	<script type="text/javascript" src="assets/js/em-dolar.js"></script>
+</body>
+</html>
