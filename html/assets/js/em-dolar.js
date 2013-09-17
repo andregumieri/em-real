@@ -29,6 +29,9 @@
 				if(success) {
 					EmDolar.Loading.hide();
 					EmDolar.setup();
+				} else {
+					EmDolar.Loading.hide();
+					$("#divSemDados").css("display", "-webkit-box");
 				}
 			});
 		},
@@ -267,7 +270,9 @@
 			var diferenca = agora-parseInt(lastUpdate);
 
 			if(diferenca>timeout || force===true) { // 1 hora de diferenca
+				$("#btnUpdateDolar").removeClass("erro");
 				$("#btnUpdateDolar").addClass("anima");
+
 				$.ajax({
 					url: '../backend/get.php',
 					data: {from: 'USD', to:'BRL'},
@@ -285,6 +290,16 @@
 							callback.call(this, true);
 							callback = null;
 						}
+					},
+
+					error: function() {
+						$("#btnUpdateDolar").removeClass("anima");
+						$("#btnUpdateDolar").addClass("erro");
+
+						if(typeof callback == 'function') {
+							callback.call(this, false);
+							callback = null;
+						}
 					}
 				});
 			}
@@ -300,22 +315,22 @@
 			 */
 			init: function() {
 				var opts = {
-				  lines: 13, // The number of lines to draw
-				  length: 10, // The length of each line
-				  width: 4, // The line thickness
-				  radius: 14, // The radius of the inner circle
-				  corners: 1, // Corner roundness (0..1)
-				  rotate: 0, // The rotation offset
-				  direction: 1, // 1: clockwise, -1: counterclockwise
-				  color: '#fff', // #rgb or #rrggbb or array of colors
-				  speed: 1, // Rounds per second
-				  trail: 60, // Afterglow percentage
-				  shadow: false, // Whether to render a shadow
-				  hwaccel: false, // Whether to use hardware acceleration
-				  className: 'spinner', // The CSS class to assign to the spinner
-				  zIndex: 2e9, // The z-index (defaults to 2000000000)
-				  top: 'auto', // Top position relative to parent in px
-				  left: 'auto' // Left position relative to parent in px
+					lines: 13, // The number of lines to draw
+					length: 10, // The length of each line
+					width: 4, // The line thickness
+					radius: 14, // The radius of the inner circle
+					corners: 1, // Corner roundness (0..1)
+					rotate: 0, // The rotation offset
+					direction: 1, // 1: clockwise, -1: counterclockwise
+					color: '#fff', // #rgb or #rrggbb or array of colors
+					speed: 1, // Rounds per second
+					trail: 60, // Afterglow percentage
+					shadow: false, // Whether to render a shadow
+					hwaccel: false, // Whether to use hardware acceleration
+					className: 'spinner', // The CSS class to assign to the spinner
+					zIndex: 2e9, // The z-index (defaults to 2000000000)
+					top: 'auto', // Top position relative to parent in px
+					left: 'auto' // Left position relative to parent in px
 				};
 				var spinner = new Spinner(opts).spin(O.$divLoading[0]);
 			},

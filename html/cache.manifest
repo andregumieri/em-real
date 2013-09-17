@@ -1,11 +1,9 @@
 CACHE MANIFEST
-# rev4
+# rev36
 index.html
 assets/css/em-dolar.css
-assets/fonts/emdolar.eot
-assets/fonts/emdolar.svg
-assets/fonts/emdolar.ttf
-assets/fonts/emdolar.woff
+assets/images/refresh.svg
+assets/images/warning.svg
 assets/js/libs/jquery-2.0.3.min.js
 assets/js/libs/jquery-2.0.3.min.map
 assets/js/libs/spin.min.js
