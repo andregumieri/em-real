@@ -14,6 +14,7 @@
 			credito: 1.0638,
 			debito: 1.0038,
 		},
+		taxaAdm: 0.1,
 		imposto: 1.065,
 
 		/**
@@ -258,6 +259,7 @@
 			if(lastUpdate && lastRate) {
 				lastRate = parseFloat(lastRate);
 				EmDolar.dolar = lastRate;
+				EmDolar.dolar += EmDolar.taxaAdm;
 				EmDolar.dolarUpdate = lastUpdate;
 				if(typeof callback == 'function') {
 					callback.call(this, true);
@@ -281,6 +283,7 @@
 					success: function(data) {
 						localStorage.setItem('emdolar-rate', data.rate);
 						EmDolar.dolar = data.rate;
+						EmDolar.dolar += EmDolar.taxaAdm;
 						EmDolar.dolarUpdate = (new Date()).getTime();
 						localStorage.setItem('emdolar-lastupdate', EmDolar.dolarUpdate);
 						EmDolar.infoDolar();
