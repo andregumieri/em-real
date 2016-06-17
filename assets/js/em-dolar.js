@@ -65,7 +65,7 @@
 
 			// Evento do resize/orientacao
 			$(window).on("resize", EmDolar._windowResize);
-			
+
 		},
 
 		/**
@@ -194,7 +194,7 @@
 			}
 
 			EmDolar.display = parseInt(display);
-			
+
 			EmDolar.atualizarDisplay();
 		},
 
@@ -238,7 +238,7 @@
 
 			var inteiroConvertido = displayConvertido.substr(0,displayConvertido.length-3);
 			var centavosConvertido = displayConvertido.substr(displayConvertido.length-3,displayConvertido.length);
-			
+
 			// Seta ao display
 			$("#spanConverter").html("<small>$</small> " + inteiro + "<small>" + centavos + "</small>");
 			$("#spanConvertido").html("<small>R$</small> " + inteiroConvertido + "<small>" + centavosConvertido + "</small>");
@@ -255,7 +255,7 @@
 			var lastUpdate = localStorage.getItem('emdolar-lastupdate');
 			var lastRate = localStorage.getItem('emdolar-rate');
 			if(!lastUpdate) lastUpdate = 0;
-			
+
 			if(lastUpdate && lastRate) {
 				lastRate = parseFloat(lastRate);
 				EmDolar.dolar = lastRate;
@@ -276,12 +276,12 @@
 				$("#btnUpdateDolar").addClass("anima");
 
 				$.ajax({
-					url: '../backend/get.php',
-					data: {from: 'USD', to:'BRL'},
+					url: 'http://api.fixer.io/latest',
+					data: {base: 'USD', symbols:'BRL'},
 					dataType: 'json',
 					type: 'GET',
 					success: function(data) {
-						localStorage.setItem('emdolar-rate', data.rate);
+						localStorage.setItem('emdolar-rate', data.rates.BRL);
 						EmDolar.dolar = data.rate;
 						EmDolar.dolar += EmDolar.taxaAdm;
 						EmDolar.dolarUpdate = (new Date()).getTime();
