@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev37
+# rev39
 index.html
 assets/css/em-dolar.css
 assets/images/refresh.svg
@@ -11,4 +11,4 @@ assets/js/em-dolar.js
 assets/js/functions.js
 
 NETWORK:
-../backend/get.php
+http://api.fixer.io
