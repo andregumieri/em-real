@@ -282,7 +282,7 @@
 					type: 'GET',
 					success: function(data) {
 						localStorage.setItem('emdolar-rate', data.rates.BRL);
-						EmDolar.dolar = parseFloat(data.rate);
+						EmDolar.dolar = parseFloat(data.rate.BRL);
 						EmDolar.dolar += EmDolar.taxaAdm;
 						EmDolar.dolarUpdate = (new Date()).getTime();
 						localStorage.setItem('emdolar-lastupdate', EmDolar.dolarUpdate);
