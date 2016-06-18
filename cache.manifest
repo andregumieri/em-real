@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# rev39
+# rev46
 index.html
 assets/css/em-dolar.css
 assets/images/refresh.svg
@@ -11,4 +11,4 @@ assets/js/em-dolar.js
 assets/js/functions.js
 
 NETWORK:
-http://api.fixer.io
+http://agf-em-real.herokuapp.com

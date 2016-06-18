@@ -276,8 +276,7 @@
 				$("#btnUpdateDolar").addClass("anima");
 
 				$.ajax({
-					url: 'http://api.fixer.io/latest',
-					data: {base: 'USD', symbols:'BRL'},
+					url: 'http://agf-em-real.herokuapp.com/',
 					dataType: 'json',
 					type: 'GET',
 					success: function(data) {
